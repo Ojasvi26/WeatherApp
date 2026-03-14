@@ -18,7 +18,7 @@ enum WeatherError: LocalizedError{
         case .invalidURL:
             "The Provided city name is Invalid"
         case .requestFailed(let statusCode):
-            "Request Failed with status code : \(statusCode)"
+            "Request Failed with status code : \(statusCode), Please try again"
         case .decoingFailed:
             "Decoding Failed"
         case .unknown:

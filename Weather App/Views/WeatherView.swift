@@ -28,15 +28,17 @@ struct WeatherView: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .padding()
+                .disabled(vm.city.count < 3)
                 
                 if vm.isLoading{
                     ProgressView("Fetching Weather...")
                 } else if let weather = vm.weather{
                     WeatherCard(weather: weather)
-                } else if let error = vm.errorMessage{
-                    Text(error)
-                        .foregroundStyle(.red)
                 }
+                if let error = vm.errorMessage{
+                    ErrorMessageView()
+                }
+                
                 Spacer()
                 
             }.navigationTitle("Weather App")
